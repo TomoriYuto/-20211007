@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Save : MonoBehaviour
+public class save : MonoBehaviour
 {
     [SerializeField]
     [Tooltip("最小角度(-180～180")]
