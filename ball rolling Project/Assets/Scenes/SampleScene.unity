@@ -226,13 +226,8 @@ GameObject:
   - component: {fileID: 730151931}
   - component: {fileID: 730151930}
   - component: {fileID: 730151934}
-<<<<<<< HEAD
-  - component: {fileID: 730151936}
-  - component: {fileID: 730151937}
-=======
   - component: {fileID: 730151937}
   - component: {fileID: 730151936}
->>>>>>> origin/tomori_yuto
   - component: {fileID: 730151935}
   m_Layer: 0
   m_Name: Cube
@@ -327,11 +322,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99727e2d66cd3d409bd25c5d39be195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-  aCube: {fileID: 0}
-  bCube: {fileID: 0}
-=======
->>>>>>> origin/tomori_yuto
 --- !u!114 &730151935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,18 +331,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 730151929}
   m_Enabled: 1
   m_EditorHideFlags: 0
-<<<<<<< HEAD
-  m_Script: {fileID: 11500000, guid: b99bc6145fe51ca4c8f9311399ca23a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MinAngle: 0
-  MaxAngle: 0
-  rotationSpeed: 1
-=======
   m_Script: {fileID: 11500000, guid: 7593b4bb08c53514d9158d171c0aebfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
->>>>>>> origin/tomori_yuto
 --- !u!114 &730151936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,11 +343,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 730151929}
   m_Enabled: 1
   m_EditorHideFlags: 0
-<<<<<<< HEAD
-  m_Script: {fileID: 11500000, guid: 8be82e7738ff76743bf726b6f0576ee3, type: 3}
-=======
   m_Script: {fileID: 11500000, guid: b18795c80141a714d80a7d1274e7e530, type: 3}
->>>>>>> origin/tomori_yuto
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &730151937
@@ -378,18 +355,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 730151929}
   m_Enabled: 1
   m_EditorHideFlags: 0
-<<<<<<< HEAD
-  m_Script: {fileID: 11500000, guid: f3a250e4a12119e4eac5cca82004a00b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-=======
   m_Script: {fileID: 11500000, guid: 1ba13d344aae5fa488fbda464adc0413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MinAngle: -30
   MaxAngle: 30
   rotationSpeed: 3
->>>>>>> origin/tomori_yuto
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
