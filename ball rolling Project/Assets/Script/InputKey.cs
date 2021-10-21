@@ -4,7 +4,16 @@ using UnityEngine;
 
 public class InputKey : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float adRotate = 100;        //回転の速さ
+    float zRotate = 0;      //z座標(上、下)への回転座標
+    float xRotate = 0;      //x座標(右、左)への回転座標
+    float totalMoveTime = 0f;       //スティック入力時の経過時間
+    float totalMoveBackTimeX = 0f, totalMoveBackTimeZ = 0f; //ニュートラル時の経過時間
+    float Decelerate = 0f;      //減速させるためのtotalMoveTimeの保存先
+    float DecelerateHozon = 0f;
+    int count = 0;
+
+    // Use this for initialization
     void Start()
     {
 
@@ -13,54 +22,104 @@ public class InputKey : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown("joystick Button 0"))
-        //{
-        //    Debug.Log("Button0");
-        //}
-        if (Input.GetKey("joystick button 1"))
+        float zRota = Input.GetAxis("Horizontal");
+        float xRota = Input.GetAxis("Vertical");
+
+        //上
+        if (0 < xRota && xRota <= 1)
         {
-            Debug.Log("button1");
+            if (zRota == 0)
+            {
+                totalMoveTime = Mathf.Clamp(totalMoveTime += Time.deltaTime, 0, 2);
+            }
+            xRotate = Mathf.Clamp(xRotate + (adRotate * Time.deltaTime) * totalMoveTime, -30, 30);
+            transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
+            if (xRotate < 0)
+            {
+
+            }
         }
-        if (Input.GetKey("joystick button 2"))
+        //下
+        if (0 > xRota && xRota >= -1)
         {
-            Debug.Log("button2");
+            if (zRota == 0)
+            {
+                totalMoveTime = Mathf.Clamp(totalMoveTime += Time.deltaTime, 0, 2);
+            }
+            xRotate = Mathf.Clamp(xRotate - (adRotate * Time.deltaTime) * totalMoveTime, -30, 30);
+            transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
         }
-        if (Input.GetKey("joystick button 3"))
+        //左
+        if (0 < zRota && zRota <= 1)
         {
-            Debug.Log("button3");
+            totalMoveTime = Mathf.Clamp(totalMoveTime += Time.deltaTime, 0, 2);
+            zRotate = Mathf.Clamp(zRotate - (adRotate * Time.deltaTime) * totalMoveTime, -30, 30);
+            transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
         }
-        if (Input.GetKey("joystick button 4"))
+        //右
+        if (0 > zRota && zRota >= -1)
         {
-            Debug.Log("button4");
-        }
-        if (Input.GetKey("joystick button 5"))
-        {
-            Debug.Log("button5");
-        }
-        if (Input.GetKey("joystick button 6"))
-        {
-            Debug.Log("button6");
-        }
-        if (Input.GetKey("joystick button 7"))
-        {
-            Debug.Log("button7");
-        }
-        if (Input.GetKey("joystick button 8"))
-        {
-            Debug.Log("button8");
-        }
-        if (Input.GetKey("joystick button 9"))
-        {
-            Debug.Log("button9");
-        }
-        float hori = Input.GetAxis("Horizontal");
-        float vert = Input.GetAxis("Vertical");
-        if ((hori != 0) || (vert != 0))
-        {
-            Debug.Log("stick:" + hori + "," + vert);
+            totalMoveTime = Mathf.Clamp(totalMoveTime += Time.deltaTime, 0, 2);
+            zRotate = Mathf.Clamp(zRotate + (adRotate * Time.deltaTime) * totalMoveTime, -30, 30);
+            transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
         }
 
+        //加速度リセット
+        if (xRota == 0 && zRota == 0)
+        {
+            Decelerate = totalMoveTime;
+            totalMoveTime = 0f;
+        }
+
+        //ニュートラルの時戻る処理
+        if (xRota == 0 && zRota == 0)
+        {
+            if (xRotate < 0)
+            {
+                //if (Decelerate != 0 && count <= 60)
+                //{
+                //    if (count == 0)
+                //    {
+                //        DecelerateHozon = ((adRotate * Time.deltaTime) * Decelerate) / 60;
+                //    }
+                //    xRotate = Mathf.Clamp(xRotate - ((DecelerateHozon * Time.deltaTime) * Decelerate), -30, 0);
+                //    transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
+                //    count++;
+                //}
+                //else if (count >= 60)
+                //{
+                totalMoveBackTimeX += Time.deltaTime;
+                xRotate = Mathf.Clamp(xRotate + (adRotate * Time.deltaTime) * totalMoveBackTimeX, -30, 0);
+                transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
+                //}
+            }
+            else if (xRotate > 0)
+            {
+                totalMoveBackTimeX += Time.deltaTime;
+                xRotate = Mathf.Clamp(xRotate - (adRotate * Time.deltaTime) * totalMoveBackTimeX, 0, 30);
+                transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
+            }
+            if (zRotate < 0)
+            {
+                totalMoveBackTimeZ += Time.deltaTime;
+                zRotate = Mathf.Clamp(zRotate + (adRotate * Time.deltaTime) * totalMoveBackTimeZ, -30, 0);
+                transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
+            }
+            else if (zRotate > 0)
+            {
+                totalMoveBackTimeZ += Time.deltaTime;
+                zRotate = Mathf.Clamp(zRotate - (adRotate * Time.deltaTime) * totalMoveBackTimeZ, 0, 30);
+                transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
+            }
+        }
+        //加速度リセット
+        if (xRota != 0)
+        {
+            totalMoveBackTimeX = 0f;
+        }
+        if (zRota != 0)
+        {
+            totalMoveBackTimeZ = 0f;
+        }
     }
 }
-
-
