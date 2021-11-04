@@ -10,6 +10,8 @@ public class BallFall : MonoBehaviour
     private float Gravity;
     private float totalFallTime = 0f;
 
+    private string ballTag = "Ball";
+
     void Start()
     {
         myTransform = GetComponent<Transform>();
@@ -23,5 +25,13 @@ public class BallFall : MonoBehaviour
         pos.y += (Gravity * Time.deltaTime) * totalFallTime;         //y座標への加算
 
         myTransform.position = pos;     //座標を設定
+    }
+
+    public void onCollisionStay()
+    {
+        if(this.gameObject.CompareTag(ballTag)) //Tagと変数が同じだったら
+        {
+            Gravity = 0f;
+        }
     }
 }
