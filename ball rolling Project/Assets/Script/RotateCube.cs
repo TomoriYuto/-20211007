@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RotateCube : MonoBehaviour
 {
-    float adRotate = 29f;        //回転の速さ
+    float adRotate = 29.8f;        //回転の速さ
 
     float zRotate = 0;      //z座標(上、下)への回転座標
     float xRotate = 0;      //x座標(右、左)への回転座標
@@ -18,7 +18,6 @@ public class RotateCube : MonoBehaviour
     float DecelerateZM = 0f;    //Z- 方向
 
     float DecelerateHozon = 0f;
-    int count = 0;      //未使用
     int f = 0;
 
     // Use this for initialization
@@ -71,7 +70,7 @@ public class RotateCube : MonoBehaviour
                 DecelerateXP = 0;
             }
         }
-        //左
+        //右
         if (0 < zRota && zRota <= 1)
         {
             if(zRotate != -30)
@@ -92,7 +91,7 @@ public class RotateCube : MonoBehaviour
                 DecelerateZM = 0;
             }
         }
-        //右
+        //左
         if (0 > zRota && zRota >= -1)
         {
             totalMoveTime = Mathf.Clamp(totalMoveTime += Time.deltaTime, 0, 1);
@@ -152,10 +151,10 @@ public class RotateCube : MonoBehaviour
                     transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
                 }
             }
-            //左に戻る
+            //右に戻る
             if (zRotate < 0)
             {
-                //右に減速
+                //左に減速
                 if (DecelerateZP > 0 && zRotate != -30)
                 {
                     DecelerateZP -= DecelerateHozon;
@@ -165,15 +164,16 @@ public class RotateCube : MonoBehaviour
                 else
                 {
                     DecelerateZP = 0f;
-                    //左に加速
+                    //右に加速
                     totalMoveBackTimeZ += Time.deltaTime;
                     zRotate = Mathf.Clamp(zRotate + (adRotate * Time.deltaTime) * totalMoveBackTimeZ, -30, 0);
                     transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
                 }
             }
-            //右に戻る
+            //左に戻る
             if (zRotate > 0)
             {
+                //右に減速
                 if (DecelerateZM > 0 && zRotate != 30)
                 {
                     DecelerateZM -= DecelerateHozon;
@@ -183,7 +183,7 @@ public class RotateCube : MonoBehaviour
                 else
                 {
                     DecelerateZM = 0f;
-                    //右に加速
+                    //左に加速
                     totalMoveBackTimeZ += Time.deltaTime;
                     zRotate = Mathf.Clamp(zRotate - (adRotate * Time.deltaTime) * totalMoveBackTimeZ, 0, 30);
                     transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
