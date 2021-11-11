@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
     //public float speed;
     public Text countText;
     public Text winText;
+    public Text message;
 
     private Rigidbody rb;
     private int count; // アイテムの取得数を格納する変数
@@ -24,9 +25,9 @@ public class GameController : MonoBehaviour
         SetCountText();
         winText.text = "";
 
-        textResult = GameObject.Find("Game Result").GetComponent<Text>();
-        textResultTime = GameObject.Find("Result Time").GetComponent<Text>();
-        textScore = GameObject.Find("Result Score").GetComponent<Text>();
+        textResult = GameObject.Find("/Canvas/winText").GetComponent<Text>();
+        textResultTime = GameObject.Find("/Canvas/Text").GetComponent<Text>();
+        textScore = GameObject.Find("/Canvas/countText").GetComponent<Text>();
     }
 
     void FixedUpdate()
@@ -59,15 +60,22 @@ public class GameController : MonoBehaviour
     {
         countText.text = count.ToString() + " / 12";
 
-        if (count >= 12)
+        if (count >= 12)        //アイテムを全部取ったら
         {
-            winText.text = "ゲームクリア！";
-            Time.timeScale = 0;
+            winText.text = "ゲームクリア！";   //テキスト表示
+            StartCoroutine("TextSet");         //コルーチンの実行
+            　　　　　　　　　　　
             inGame = false;
 
             //textResult.text;
             //textResultTime.text;
             //textScore.text;
         }
+    }
+    IEnumerator TextSet()
+    {
+        yield return new WaitForSeconds(2.0f);   //1秒待って
+        winText.text = "";　　　　　　　　　　   //非表示
+        Time.timeScale = 0;                      //時間停止
     }
 }
