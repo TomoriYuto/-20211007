@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour
     private Text textResult;
     private Text textScore;
     private Text textResultTime;
+
     void Start()
     {
         inGame = true;
@@ -25,9 +26,9 @@ public class GameController : MonoBehaviour
         SetCountText();
         winText.text = "";
 
-        textResult = GameObject.Find("/Canvas/winText").GetComponent<Text>();
-        textResultTime = GameObject.Find("/Canvas/Text").GetComponent<Text>();
-        textScore = GameObject.Find("/Canvas/countText").GetComponent<Text>();
+        textResult = GameObject.Find("Game Result").GetComponent<Text>();
+        textResultTime = GameObject.Find("Result Time").GetComponent<Text>();
+        textScore = GameObject.Find("Result Score").GetComponent<Text>();
     }
 
     void FixedUpdate()
@@ -41,7 +42,7 @@ public class GameController : MonoBehaviour
 
         if (inGame)
         {
-            Debug.Log(Time.time);   //ゲーム開始からの時間を取得
+            //Debug.Log(Time.time);   //ゲーム開始からの時間を取得
 
         }
     }
@@ -60,11 +61,11 @@ public class GameController : MonoBehaviour
     {
         countText.text = count.ToString() + " / 12";
 
-        if (count >= 12)        //アイテムを全部取ったら
+        if (count >= 12)         //アイテムを全部取ったら
         {
-            winText.text = "ゲームクリア！";   //テキスト表示
-            StartCoroutine("TextSet");         //コルーチンの実行
-            　　　　　　　　　　　
+            winText.text = "ゲームクリア！";       //テキスト表示
+            StartCoroutine("TextSet");              //コルーチンの実行
+
             inGame = false;
 
             //textResult.text;
@@ -72,10 +73,11 @@ public class GameController : MonoBehaviour
             //textScore.text;
         }
     }
+
     IEnumerator TextSet()
     {
-        yield return new WaitForSeconds(2.0f);   //1秒待って
-        winText.text = "";　　　　　　　　　　   //非表示
-        Time.timeScale = 0;                      //時間停止
+        yield return new WaitForSeconds(1.0f);      //1秒待って
+        winText.text = "";                          //非表示
+        Time.timeScale = 0;                     //時間停止
     }
 }

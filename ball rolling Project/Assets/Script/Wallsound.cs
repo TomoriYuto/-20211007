@@ -18,11 +18,11 @@ public class Wallsound : MonoBehaviour
 	/// 衝突した時
 	/// </summary>
 	/// <param name="collision"></param>
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision　other)
     {
-        if (collision.gameObject.tag == "Ball")
+        if (other.gameObject.tag == "Ball")
         {
-            Debug.Log(77);
+            Debug.Log("壁にぶつから真");
             audio.PlayOneShot(sound);
         }
     }
