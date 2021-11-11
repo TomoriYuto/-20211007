@@ -7,6 +7,7 @@ TagManager:
   - Item
   - gameObject
   - Ball
+  - Bounce
   layers:
   - Default
   - TransparentFX
