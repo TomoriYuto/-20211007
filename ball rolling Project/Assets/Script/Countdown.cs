@@ -10,11 +10,13 @@ public class Countdown : MonoBehaviour
 	[SerializeField]
 	private Image _imageMask;
 
-	private int count;
+	int count;
 
 	void Start()
 	{
+		count = 0;
 		_textCountdown.text = "";
+
 	}
 
 	public void Update()
