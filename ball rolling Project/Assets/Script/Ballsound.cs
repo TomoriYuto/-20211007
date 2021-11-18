@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wallsound : MonoBehaviour
+public class Ballsound : MonoBehaviour
 {
     private AudioSource audio;
 
@@ -20,15 +20,10 @@ public class Wallsound : MonoBehaviour
 	/// <param name="collision"></param>
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Ball")
+        if (other.gameObject.tag == "Floar")
         {
             Debug.Log(77);
             audio.PlayOneShot(sound);
         }
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
