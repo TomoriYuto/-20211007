@@ -9,10 +9,14 @@ public class GameController : MonoBehaviour
     public Text countText;
     public Text winText;
     public Text message;
+    public GameObject particleObject;
+    public GameObject wallparticle;
+    public GameObject clearparticle;
 
     private Rigidbody rb;
     private int count; // アイテムの取得数を格納する変数
     private bool inGame;
+    //private ParticleSystem particle;
 
     private Text textResult;
     private Text textScore;
@@ -24,6 +28,10 @@ public class GameController : MonoBehaviour
         count = 0; // 初期化
         SetCountText();
         winText.text = "";
+        //particle = this.GetComponent<ParticleSystem>();
+
+        // ここで Particle System を停止する.
+        //particle.Stop();
 
         textResult = GameObject.Find("/Canvas/winText").GetComponent<Text>();
         textResultTime = GameObject.Find("/Canvas/Text").GetComponent<Text>();
@@ -39,11 +47,11 @@ public class GameController : MonoBehaviour
 
         //rb.AddForce(movement * speed);
 
-        if (inGame)
-        {
-            Debug.Log(Time.time);   //ゲーム開始からの時間を取得
+        //if (inGame)
+        //{
+        //    Debug.Log(Time.time);   //ゲーム開始からの時間を取得
 
-        }
+        //}
     }
 
     void OnTriggerEnter(Collider other)
@@ -53,8 +61,34 @@ public class GameController : MonoBehaviour
             other.gameObject.SetActive(false);
             count = count + 1; // 衝突判定のイベントが発生した際に count の数を１上げる
             SetCountText();
+            Instantiate(particleObject, this.transform.position, Quaternion.identity); //パーティクル用ゲームオブジェクト生成
+        }
+
+
+        //if (other.gameObject.CompareTag("Bounce"))
+        //{
+        //    Debug.Log("こっち入った");
+        //    //other.gameObject.SetActive(false);
+        //    Instantiate(wallparticle, this.transform.position, Quaternion.identity); //パーティクル用ゲームオブジェクト生成
+        //}
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Bounce") //Objectタグの付いたゲームオブジェクトと衝突したか判別
+        {
+            //Debug.Log("入った");
+            Instantiate(wallparticle, this.transform.position, Quaternion.identity); //パーティクル用ゲームオブジェクト生成
         }
     }
+
+    //private void OnCollisionStay(Collision collision)
+    //{
+    //    if (collision.gameObject.tag == "Flore") //Objectタグの付いたゲームオブジェクトと衝突したか判別
+    //    {
+    //        Instantiate(floreparticle, this.transform.position, Quaternion.identity); //パーティクル用ゲームオブジェクト生成
+    //    }
+    //}
 
     void SetCountText()
     {
@@ -62,6 +96,9 @@ public class GameController : MonoBehaviour
 
         if (count >= 12)        //アイテムを全部取ったら
         {
+            // ここで Particle System を開始します.
+            //particle.Play();
+            //Instantiate(clearparticle, this.transform.position, Quaternion.identity); //パーティクル用ゲームオブジェクト生成
             winText.text = "ゲームクリア！";   //テキスト表示
             StartCoroutine("TextSet");         //コルーチンの実行
             　　　　　　　　　　　
