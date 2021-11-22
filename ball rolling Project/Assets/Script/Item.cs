@@ -5,14 +5,11 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    private AudioSource audio;
-    [SerializeField]
-    private AudioClip sound;
-    [SerializeField] private GameObject a;
+    public AudioClip sound1;
 
     void Start()
     {
-        audio = gameObject.AddComponent<AudioSource>();
+
     }
 
     //void OnCollisionEnter(Collision other)
@@ -28,8 +25,9 @@ public class Item : MonoBehaviour
         //接触対象はPlayerか
         if (hit.CompareTag("Ball"))
         {
-            audio.PlayOneShot(sound);
-            a.SetActive(false);
+            AudioSource.PlayClipAtPoint(sound1, transform.position);
+
+            Destroy(gameObject);
         }
     }
 }
