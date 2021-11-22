@@ -15,6 +15,7 @@ public class Scenes : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown("joystick button 0")){
+            Time.timeScale = 1;
             SceneManager.LoadScene("SampleScene");
         }
     }

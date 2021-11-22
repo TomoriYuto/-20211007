@@ -6,36 +6,36 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     //public float speed;
-    public Text countText;
-    public Text winText;
-    public Text message;
+    //public Text countText;
+    //public Text winText;
+    //public Text message;
     public GameObject particleObject;
     public GameObject wallparticle;
     public GameObject clearparticle;
 
-    private Rigidbody rb;
-    private int count; // アイテムの取得数を格納する変数
-    private bool inGame;
+    //private Rigidbody rb;
+    //private int count; // アイテムの取得数を格納する変数
+    //private bool inGame;
     //private ParticleSystem particle;
 
-    private Text textResult;
-    private Text textScore;
-    private Text textResultTime;
+    //private Text textResult;
+    //private Text textScore;
+    //private Text textResultTime;
     void Start()
     {
-        inGame = true;
-        rb = GetComponent<Rigidbody>();
-        count = 0; // 初期化
-        SetCountText();
-        winText.text = "";
+        //inGame = true;
+        //rb = GetComponent<Rigidbody>();
+        //count = 0; // 初期化
+        //SetCountText();
+        //winText.text = "";
         //particle = this.GetComponent<ParticleSystem>();
 
         // ここで Particle System を停止する.
         //particle.Stop();
 
-        textResult = GameObject.Find("/Canvas/winText").GetComponent<Text>();
-        textResultTime = GameObject.Find("/Canvas/Text").GetComponent<Text>();
-        textScore = GameObject.Find("/Canvas/countText").GetComponent<Text>();
+        //textResult = GameObject.Find("/Canvas/winText").GetComponent<Text>();
+        //textResultTime = GameObject.Find("/Canvas/Text").GetComponent<Text>();
+        //textScore = GameObject.Find("/Canvas/countText").GetComponent<Text>();
     }
 
     void FixedUpdate()
@@ -58,9 +58,9 @@ public class GameController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Item"))
         {
-            other.gameObject.SetActive(false);
-            count = count + 1; // 衝突判定のイベントが発生した際に count の数を１上げる
-            SetCountText();
+            //other.gameObject.SetActive(false);
+            //count = count + 1; // 衝突判定のイベントが発生した際に count の数を１上げる
+            //SetCountText();
             Instantiate(particleObject, this.transform.position, Quaternion.identity); //パーティクル用ゲームオブジェクト生成
         }
 
@@ -90,29 +90,29 @@ public class GameController : MonoBehaviour
     //    }
     //}
 
-    void SetCountText()
-    {
-        countText.text = count.ToString() + " / 12";
+    //void SetCountText()
+    //{
+    //    countText.text = count.ToString() + " / 12";
 
-        if (count >= 12)        //アイテムを全部取ったら
-        {
-            // ここで Particle System を開始します.
-            //particle.Play();
-            //Instantiate(clearparticle, this.transform.position, Quaternion.identity); //パーティクル用ゲームオブジェクト生成
-            winText.text = "ゲームクリア！";   //テキスト表示
-            StartCoroutine("TextSet");         //コルーチンの実行
+    //    if (count >= 12)        //アイテムを全部取ったら
+    //    {
+    //        // ここで Particle System を開始します.
+    //        //particle.Play();
+    //        //Instantiate(clearparticle, this.transform.position, Quaternion.identity); //パーティクル用ゲームオブジェクト生成
+    //        winText.text = "ゲームクリア！";   //テキスト表示
+    //        StartCoroutine("TextSet");         //コルーチンの実行
             　　　　　　　　　　　
-            inGame = false;
+    //        inGame = false;
 
-            //textResult.text;
-            //textResultTime.text;
-            //textScore.text;
-        }
-    }
-    IEnumerator TextSet()
-    {
-        yield return new WaitForSeconds(2.0f);   //1秒待って
-        winText.text = "";　　　　　　　　　　   //非表示
-        Time.timeScale = 0;                      //時間停止
-    }
+    //        //textResult.text;
+    //        //textResultTime.text;
+    //        //textScore.text;
+    //    }
+    //}
+    //IEnumerator TextSet()
+    //{
+    //    yield return new WaitForSeconds(2.0f);   //1秒待って
+    //    winText.text = "";　　　　　　　　　　   //非表示
+    //    Time.timeScale = 0;                      //時間停止
+    //}
 }

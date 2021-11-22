@@ -29,7 +29,7 @@ public class Item : MonoBehaviour
         if (hit.CompareTag("Ball"))
         {
             audio.PlayOneShot(sound);
-            a.SetActive(false);
+            //a.SetActive(false);
         }
     }
 }
