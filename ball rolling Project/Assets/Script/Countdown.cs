@@ -10,14 +10,10 @@ public class Countdown : MonoBehaviour
 	[SerializeField]
 	private Image _imageMask;
 
-<<<<<<< HEAD
-	int count;
-=======
 	public AudioClip sound1;
 	public AudioClip sound2;
 
 	private int count;
->>>>>>> origin/yoza
 
 	void Start()
 	{
