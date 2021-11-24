@@ -8,6 +8,8 @@ TagManager:
   - gameObject
   - Ball
   - Bounce
+  - Flore
+  - Bullet
   layers:
   - Default
   - TransparentFX
