@@ -18,7 +18,7 @@ public class Wallsound : MonoBehaviour
 	/// 衝突した時
 	/// </summary>
 	/// <param name="collision"></param>
-    private void OnCollisionEnter(Collision other)
+    void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Ball")
         {
