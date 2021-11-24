@@ -312,8 +312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b28fa53f28cee4fbec5fdcaf930ca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 0}
-  a: {fileID: 0}
+  sound1: {fileID: 8300000, guid: f4ee523038668dd4fa8730b42e8720b6, type: 3}
 --- !u!114 &200653190 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9025549946432643048, guid: aa6455c73fa7c5545a11c8392dcafef6,
@@ -873,8 +872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b28fa53f28cee4fbec5fdcaf930ca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 0}
-  a: {fileID: 0}
+  sound1: {fileID: 8300000, guid: f4ee523038668dd4fa8730b42e8720b6, type: 3}
 --- !u!1 &616414860
 GameObject:
   m_ObjectHideFlags: 0
@@ -1062,8 +1060,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b28fa53f28cee4fbec5fdcaf930ca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 0}
-  a: {fileID: 0}
+  sound1: {fileID: 8300000, guid: f4ee523038668dd4fa8730b42e8720b6, type: 3}
 --- !u!1 &689789993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1802,8 +1799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b28fa53f28cee4fbec5fdcaf930ca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 0}
-  a: {fileID: 0}
+  sound1: {fileID: 8300000, guid: f4ee523038668dd4fa8730b42e8720b6, type: 3}
 --- !u!1 &867773039
 GameObject:
   m_ObjectHideFlags: 0
@@ -7296,8 +7292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b28fa53f28cee4fbec5fdcaf930ca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 0}
-  a: {fileID: 0}
+  sound1: {fileID: 8300000, guid: f4ee523038668dd4fa8730b42e8720b6, type: 3}
 --- !u!1 &1214333583
 GameObject:
   m_ObjectHideFlags: 0
@@ -7507,8 +7502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b28fa53f28cee4fbec5fdcaf930ca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 0}
-  a: {fileID: 0}
+  sound1: {fileID: 8300000, guid: f4ee523038668dd4fa8730b42e8720b6, type: 3}
 --- !u!1001 &1274085366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7706,8 +7700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b28fa53f28cee4fbec5fdcaf930ca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 0}
-  a: {fileID: 0}
+  sound1: {fileID: 8300000, guid: f4ee523038668dd4fa8730b42e8720b6, type: 3}
 --- !u!1 &1413205629
 GameObject:
   m_ObjectHideFlags: 0
@@ -7952,8 +7945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b28fa53f28cee4fbec5fdcaf930ca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 0}
-  a: {fileID: 0}
+  sound1: {fileID: 8300000, guid: f4ee523038668dd4fa8730b42e8720b6, type: 3}
 --- !u!1 &1440577168
 GameObject:
   m_ObjectHideFlags: 0
@@ -8509,8 +8501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b28fa53f28cee4fbec5fdcaf930ca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 0}
-  a: {fileID: 0}
+  sound1: {fileID: 8300000, guid: f4ee523038668dd4fa8730b42e8720b6, type: 3}
 --- !u!1 &1706626648
 GameObject:
   m_ObjectHideFlags: 0
@@ -8840,8 +8831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b28fa53f28cee4fbec5fdcaf930ca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 0}
-  a: {fileID: 0}
+  sound1: {fileID: 8300000, guid: f4ee523038668dd4fa8730b42e8720b6, type: 3}
 --- !u!1 &1975140142
 GameObject:
   m_ObjectHideFlags: 0
@@ -9039,8 +9029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b28fa53f28cee4fbec5fdcaf930ca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 0}
-  a: {fileID: 0}
+  sound1: {fileID: 8300000, guid: f4ee523038668dd4fa8730b42e8720b6, type: 3}
 --- !u!1 &2040917629
 GameObject:
   m_ObjectHideFlags: 0
@@ -9147,8 +9136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b28fa53f28cee4fbec5fdcaf930ca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 0}
-  a: {fileID: 0}
+  sound1: {fileID: 8300000, guid: f4ee523038668dd4fa8730b42e8720b6, type: 3}
 --- !u!1 &2080961262
 GameObject:
   m_ObjectHideFlags: 0
