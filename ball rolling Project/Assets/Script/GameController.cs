@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
     public Text message;
     public GameObject particleObject;
     public GameObject wallparticle;
-    public GameObject clearparticle;
+    public ParticleSystem clearparticle;
 
     private Rigidbody rb;
     private int count; // アイテムの取得数を格納する変数
@@ -99,6 +99,7 @@ public class GameController : MonoBehaviour
             // ここで Particle System を開始します.
             //particle.Play();
             //Instantiate(clearparticle, this.transform.position, Quaternion.identity); //パーティクル用ゲームオブジェクト生成
+            clearparticle.Play();
             winText.text = "ゲームクリア！";   //テキスト表示
             StartCoroutine("TextSet");         //コルーチンの実行
             　　　　　　　　　　　
