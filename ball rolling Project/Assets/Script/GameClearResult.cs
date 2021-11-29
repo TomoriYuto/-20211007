@@ -95,6 +95,7 @@ public class GameClearResult : MonoBehaviour
             inGame = false;
             rb.constraints = RigidbodyConstraints.FreezeAll;
             GameObject.Find("Cube").GetComponent<PouseMenu>().enabled = false;
+            GameObject.Find("Cube/GameObject/cannon").GetComponent<Enemy>().enabled = false;
         }
     }
     IEnumerator CountdownCoroutine()

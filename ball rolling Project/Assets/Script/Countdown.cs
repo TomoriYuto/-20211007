@@ -27,7 +27,8 @@ public class Countdown : MonoBehaviour
 			StartCoroutine(CountdownCoroutine());
 			GetComponent<RotateCube>().enabled = false;
 			GetComponent<PouseMenu>().enabled = false;
-            if (count == 0) {
+			GameObject.Find("Cube/GameObject/cannon").GetComponent<Enemy>().enabled = false;
+			if (count == 0) {
 				AudioSource.PlayClipAtPoint(sound1, transform.position);
 			}
 			count += 1;
@@ -58,5 +59,6 @@ public class Countdown : MonoBehaviour
 		_imageMask.gameObject.SetActive(false);
 		GetComponent<RotateCube>().enabled = true;
 		GetComponent<PouseMenu>().enabled = true;
+		GameObject.Find("Cube/GameObject/cannon").GetComponent<Enemy>().enabled = true;
 	}
 }
