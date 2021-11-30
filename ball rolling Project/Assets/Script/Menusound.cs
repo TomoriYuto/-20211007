@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;//スクリプトでUI(テキストなど)扱うときはこれ必須！！
 using UnityEngine.SceneManagement;
 
-public class Menusound : MonoBehaviour
+public class MenuSound : MonoBehaviour
 {
     public int It = 0;
     public int i = 0;
@@ -41,7 +41,7 @@ public class Menusound : MonoBehaviour
         {
             i = 0;
         }
-        if (Input.GetKeyDown("joystick button 7"))
+        if (Input.GetKeyDown("joystick button 1"))
         {
             audio2.PlayOneShot(sound2);
 
@@ -55,26 +55,26 @@ public class Menusound : MonoBehaviour
 
         if (y == -1 && It != 2)
         {
-                
+
             It++;
             audio.PlayOneShot(sound);
         }
         else if (y == -1)
         {
-      
+
             It = 0;
             audio.PlayOneShot(sound);
         }
 
         if (y == +1 && It != 0)
         {
-     
+
             It--;
             audio.PlayOneShot(sound);
         }
         else if (y == +1)
         {
-  
+
             It = 2;
             audio.PlayOneShot(sound);
         }

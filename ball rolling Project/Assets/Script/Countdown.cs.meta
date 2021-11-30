@@ -3,7 +3,11 @@ guid: e6521a4b5d463194f98a688ff3187c96
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - _textCountdown: {instanceID: 0}
+  - _imageMask: {instanceID: 0}
+  - sound1: {fileID: 8300000, guid: ee804593c9e3ffc4da81569cad919460, type: 3}
+  - sound2: {fileID: 8300000, guid: d9cf2f47258f0b245984b166383a7c43, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

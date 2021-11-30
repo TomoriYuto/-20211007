@@ -29,7 +29,7 @@ public class PouseMenu : MonoBehaviour
             backP--;
         }
     }
-    
+
 
     private void Pause()
     {
