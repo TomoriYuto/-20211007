@@ -22,11 +22,13 @@ public class PouseMenu : MonoBehaviour
         {
             Pause();
             backP++;
+            GameObject.Find("Cube/GameObject/cannon").GetComponent<Enemy>().enabled = false;
         }
         else if (Input.GetKeyDown("joystick button 7") && backP == 1)
         {
             Resume();
             backP--;
+            GameObject.Find("Cube/GameObject/cannon").GetComponent<Enemy>().enabled = true;
         }
     }
     

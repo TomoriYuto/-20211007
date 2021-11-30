@@ -17,12 +17,4 @@ public class RetryChoice : MonoBehaviour
         button.GetComponent<Button>().Select();
 
     }
-
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown("joystick button 10"))
-    //    {
-    //        a.position += new Vector3(1f + 1, 0, 0);
-    //    }
-    //}
 }
