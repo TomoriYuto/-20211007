@@ -7,7 +7,12 @@ public class GameManager : MonoBehaviour
 {
     public void Retry()
     {
+        StartCoroutine(RetryScene());
+    }
+
+    IEnumerator RetryScene()
+    {
+        yield return new WaitForSeconds(1.0f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Time.timeScale = 1;  // 再開
     }
 }

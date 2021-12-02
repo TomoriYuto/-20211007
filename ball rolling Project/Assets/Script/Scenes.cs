@@ -5,18 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class Scenes : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("joystick button 0")){
-            Time.timeScale = 1;
-            SceneManager.LoadScene("SampleScene");
+        if (Input.GetKeyDown("joystick button 0"))
+        {
+            StartCoroutine(GameStartScene());
         }
     }
+    IEnumerator GameStartScene()
+    {
+        yield return new WaitForSeconds(1.0f);
+        SceneManager.LoadScene("SampleScene");
+    }
+
 }

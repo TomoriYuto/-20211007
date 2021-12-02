@@ -5,12 +5,17 @@ using UnityEngine;
 using UnityEditor;
 public class PouseEnd : MonoBehaviour
 {
-
     public void GameEnd()
     {
-        //UnityEditor.EditorApplication.isPlaying = false;
-        Application.Quit();
+        StartCoroutine(GameEndScene());
     }
 
+    IEnumerator GameEndScene()
+    {
+        yield return new WaitForSeconds(1.0f);
+        UnityEditor.EditorApplication.isPlaying = false;
+        //Application.Quit();
+
+    }
 }
 #endif
