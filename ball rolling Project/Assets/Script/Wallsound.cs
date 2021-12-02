@@ -22,7 +22,7 @@ public class Wallsound : MonoBehaviour
     {
         if (other.gameObject.tag == "Ball")
         {
-            Debug.Log(77);
+            //Debug.Log(77);
             audio.PlayOneShot(sound);
         }
     }

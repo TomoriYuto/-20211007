@@ -73,11 +73,6 @@ public class RotateCube : MonoBehaviour
         //右
         if (0 < zRota && zRota <= 1)
         {
-            if(zRotate != -30)
-            {
-                f++;
-                Debug.Log(f);
-            }
             totalMoveTime = Mathf.Clamp(totalMoveTime += Time.deltaTime, 0, 1);
             zRotate = Mathf.Clamp(zRotate - (adRotate * Time.deltaTime) * totalMoveTime, -30, 30);
             transform.eulerAngles = new Vector3(xRotate, 0, zRotate);

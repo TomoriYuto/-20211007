@@ -15,7 +15,7 @@ public class PouseChoice : MonoBehaviour
         //button = GameObject.Find("menu/Panel/re").GetComponent<Button>();
         //ボタンが選択された状態になる
         button.GetComponent<Button>().Select();
-        Debug.Log("aaa");
+        //Debug.Log("aaa");
 
     }
 

@@ -8,6 +8,12 @@ public class BackScene : MonoBehaviour
 
     public void BackTitle()
     {
-         SceneManager.LoadScene("Title");
+        StartCoroutine(BackTitleScene());
+    }
+
+    IEnumerator BackTitleScene()
+    {
+        yield return new WaitForSeconds(1.0f);
+        SceneManager.LoadScene("Title");
     }
 }

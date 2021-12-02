@@ -4,6 +4,13 @@ using System.Collections;
 
 public class GameClearResult : MonoBehaviour
 {
+    private new AudioSource audio;
+
+    [SerializeField]
+    //private AudioClip sound1;
+    public AudioSource sound2;
+    [SerializeField]
+    private Image _imageMask;
     [SerializeField]
     private Text _textCountdown;
 
@@ -13,6 +20,7 @@ public class GameClearResult : MonoBehaviour
     public Text countText;
     public Text countResult;
     public Text ResultTime;
+    public AudioClip timeUpSound;
 
     private int count; // アイテムの取得数を格納する変数
     private bool inGame;
@@ -27,9 +35,13 @@ public class GameClearResult : MonoBehaviour
     private Text textResult;
     private Text textScore;
     private Text textResultTime;
+    public AudioClip tumeUpSound;
+    
 
     void Start()
     {
+        audio = gameObject.AddComponent<AudioSource>();
+        sound2 = GetComponent<AudioSource>();
         Panel2.SetActive(false);
         Result.SetActive(false);
 
@@ -38,9 +50,15 @@ public class GameClearResult : MonoBehaviour
         count = 0; // 初期化
         SetCountText();
 
-        _textCountdown.text = "";
         rb.useGravity = true;
     }
+    
+    void TimeUp()
+    {
+        //音を鳴らす
+        audio.PlayOneShot(timeUpSound);
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Item"))
@@ -57,6 +75,7 @@ public class GameClearResult : MonoBehaviour
         {
             if (Input.GetKeyDown("joystick button 0"))
             {
+                sound2.Stop();
                 Result.SetActive(false);
                 Panel2.SetActive(true);
             }
@@ -95,19 +114,23 @@ public class GameClearResult : MonoBehaviour
             inGame = false;
             rb.constraints = RigidbodyConstraints.FreezeAll;
             GameObject.Find("Cube").GetComponent<PouseMenu>().enabled = false;
+            GameObject.Find("Cube/GameObject/cannon").GetComponent<Enemy>().enabled = false;
         }
     }
     IEnumerator CountdownCoroutine()
     {
         GameObject.Find("Cube").GetComponent<RotateCube>().enabled = false;
+        _imageMask.gameObject.SetActive(true);
         _textCountdown.gameObject.SetActive(true);
 
         _textCountdown.text = "ゲームクリア";
         yield return new WaitForSeconds(1.0f);
 
+        sound2.Play();
         Result.SetActive(true);
 
         _textCountdown.text = "";
+        _imageMask.gameObject.SetActive(false);
         _textCountdown.gameObject.SetActive(false);
     }
 }

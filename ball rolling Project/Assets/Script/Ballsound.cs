@@ -4,26 +4,29 @@ using UnityEngine;
 
 public class Ballsound : MonoBehaviour
 {
-    private AudioSource audio;
+    //玉のRigidbody
+    public Rigidbody rigidbody;
 
-    [SerializeField]
-    private AudioClip sound;
-    // Start is called before the first frame update
-    void Start()
-    {
-        audio = gameObject.AddComponent<AudioSource>();
-    }
+    //SE
+    public AudioSource audio;
 
-    /// <summary>
-	/// 衝突した時
-	/// </summary>
-	/// <param name="collision"></param>
-    void OnCollisionEnter(Collision other)
+    void FixedUpdate()
     {
-        if (other.gameObject.tag == "Floar")
+        //玉の速度が0.1(速度の2乗が0.01)以上の時
+        if (rigidbody.velocity.sqrMagnitude >= 0.01f)
         {
-            Debug.Log(77);
-            audio.PlayOneShot(sound);
+            //SEが再生していなかったら
+            if (!audio.isPlaying)
+            {
+                //SEを再生
+                audio.Play();
+            }
+        }
+        //SEが再生されていたら
+        else if (audio.isPlaying)
+        {
+            //SEを停止
+            audio.Pause();
         }
     }
 }

@@ -41,7 +41,7 @@ public class Menusound : MonoBehaviour
         {
             i = 0;
         }
-        if (Input.GetKeyDown("joystick button 7"))
+        if (Input.GetKeyDown("joystick button 0"))
         {
             audio2.PlayOneShot(sound2);
 
