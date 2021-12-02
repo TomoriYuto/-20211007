@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     //public float speed;
-    public Text countText;
-    public Text winText;
-    public Text message;
+    //public Text countText;
+    //public Text winText;
+    //public Text message;
     public GameObject particleObject;
     public GameObject wallparticle;
     public ParticleSystem clearparticle;
@@ -27,15 +27,15 @@ public class GameController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         count = 0; // 初期化
         SetCountText();
-        winText.text = "";
+        //winText.text = "";
         //particle = this.GetComponent<ParticleSystem>();
 
         // ここで Particle System を停止する.
         //particle.Stop();
 
-        textResult = GameObject.Find("/Canvas/winText").GetComponent<Text>();
-        textResultTime = GameObject.Find("/Canvas/Text").GetComponent<Text>();
-        textScore = GameObject.Find("/Canvas/countText").GetComponent<Text>();
+        //textResult = GameObject.Find("/Canvas/winText").GetComponent<Text>();
+        //textResultTime = GameObject.Find("/Canvas/Text").GetComponent<Text>();
+        //textScore = GameObject.Find("/Canvas/countText").GetComponent<Text>();
     }
 
     void FixedUpdate()
@@ -92,7 +92,7 @@ public class GameController : MonoBehaviour
 
     void SetCountText()
     {
-        countText.text = count.ToString() + " / 12";
+        //countText.text = count.ToString() + " / 12";
 
         if (count >= 12)        //アイテムを全部取ったら
         {
@@ -100,7 +100,7 @@ public class GameController : MonoBehaviour
             //particle.Play();
             //Instantiate(clearparticle, this.transform.position, Quaternion.identity); //パーティクル用ゲームオブジェクト生成
             clearparticle.Play();
-            winText.text = "ゲームクリア！";   //テキスト表示
+            //winText.text = "ゲームクリア！";   //テキスト表示
             StartCoroutine("TextSet");         //コルーチンの実行
             　　　　　　　　　　　
             inGame = false;
@@ -113,7 +113,7 @@ public class GameController : MonoBehaviour
     IEnumerator TextSet()
     {
         yield return new WaitForSeconds(2.0f);   //1秒待って
-        winText.text = "";　　　　　　　　　　   //非表示
+        //winText.text = "";　　　　　　　　　　   //非表示
         Time.timeScale = 0;                      //時間停止
     }
 }
